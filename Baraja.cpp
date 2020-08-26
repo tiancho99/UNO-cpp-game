@@ -158,7 +158,7 @@ void Baraja::start(int jugadores) {
         string nombre;
         ostringstream s;
         s<<i;
-        cout<<"Digite el nombre de jugador "<<i+1<<" ";
+        cout<<"Enter player name "<<i+1<<" ";
         cin>>nombre;
         
          game.addFirst(Jugador(nombre,s.str(), cards));
@@ -172,7 +172,7 @@ void Baraja::start(int jugadores) {
 void Baraja::jugar() {
     getchar();
     system("clear");
-   cout<<"Press 'Enter' to continue...\n";
+   cout<<"Press two times 'Enter' to continue...\n";
     continuar();
     system("clear");
     int ind=rand()%(cartas.size()-8);
@@ -184,11 +184,11 @@ void Baraja::jugar() {
     while(!isEnd){
         getchar();   
         vector<Carta> vec = game.getActual().getCartas();
-        cout<<"jugador "<<game.getActual().getNombre()<<"\n";
+        cout<<"Player "<<game.getActual().getNombre()<<"\n";
         cout<<"Press 'Enter' to continue...\n";
         continuar();
         system("clear");       
-        cout<<"jugador "<<game.getActual().getNombre()<<"\ncarta en top: "<<top.toString()<<"\n";
+        cout<<"Player "<<game.getActual().getNombre()<<"\nTop card: "<<top.toString()<<"\n";
         for (int i = 0; i < vec.size(); i++) {
             cout<<i+1<<")"<<vec.at(i).toString();
         }
@@ -196,7 +196,7 @@ void Baraja::jugar() {
         if(revisar(vec)){
             bool cont=false;
             do{
-                cout<<"\nSeleccione la carta que desea lanzar"<<endl;
+                cout<<"\nSelect your card"<<endl;
                 cin>>ind;
                if(acumulado == 0){
                    proceso(vec,  &cont, ind, &isEnd);
@@ -207,7 +207,7 @@ void Baraja::jugar() {
                         proceso(vec,  &cont, ind, &isEnd);
                     }
                    else {
-                    cout<<"carta invalida"<<endl;
+                    cout<<"Invalid Card"<<endl;
                     
                     }
 
@@ -216,7 +216,7 @@ void Baraja::jugar() {
             
         }else{
             
-                cout<<"\nno tiene cartas compatibles. robas carta:\n"<<endl;
+                cout<<"\nYou have no cards to drop. you take one card:\n"<<endl;
                 int ind=rand()%cartas.size();
                 game.getJugador()->getDir()->push_back(cartas.at(ind));
                 cartas.erase(cartas.begin()+(ind));
@@ -241,7 +241,7 @@ void Baraja::proceso(vector<Carta> vec, bool* cont, int ind, bool* isEnd){
                         jug->getDir()->erase(jug->getDir()->begin()+(ind-1));
                         top=vec.at(ind-1);
                         if (vec.empty()) {
-                            cout<<"FELICITACIONES "<<game.getActual().getNombre()<<" HAS GANADO";
+                            cout<<"CONGRATULATIONS "<<game.getActual().getNombre()<<" YOU WON";
                             *isEnd=true;
                         }
                         game.siguiente(sentido);
@@ -250,7 +250,7 @@ void Baraja::proceso(vector<Carta> vec, bool* cont, int ind, bool* isEnd){
                         *cont =true;
                     
                     }else {
-                    cout<<"carta invalida"<<endl;
+                    cout<<"Invalid Card"<<endl;
                     }
     
 }
@@ -279,7 +279,7 @@ void Baraja::analizar(Carta carta) {
                
             
         }
-        cout<<"seleccione el color al que desea cambiar"
+        cout<<"Select color you want to change to"
                 "\n1)green"
                 "\n2)red"
                 "\n3)yellow"
@@ -363,19 +363,19 @@ bool Baraja::defenderse() {
     if (top.getNumero().compare("draw4")==0) {
         for (int i = 0; i < vec.size(); i++) {
             if (vec.at(i).getNumero().compare("draw4")==0) {
-                 cout<<"\ntiene defensa\n";
+                 cout<<"\nYou can defend yourself\n";
             return true;
             }
         }
     }else if(top.getNumero().compare("draw2")==0){
          for (int i = 0; i < vec.size(); i++) {
             if (vec.at(i).getNumero().compare("draw4")==0||vec.at(i).getNumero().compare("draw2")==0) {
-             cout<<"\ntiene defensa\n";
+             cout<<"\nYou can defend yourself\n";
             return true;
             }
         }     
     }
-      cout<<"\nno tiene defensa\n";
+      cout<<"\nYou can NOT defend yourself\n";
     return false;
     
 }
