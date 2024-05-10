@@ -5,33 +5,33 @@
  */
 
 /* 
- * File:   Carta.cpp
+ * File:   Card.cpp
  * Author: tianc
  * 
  * Created on 30 de septiembre de 2018, 03:58 PM
  */
 
-#include "Carta.hpp"
+#include "Card.hpp"
 
-Carta::Carta(char color, string numero) {
+Card::Card(char color, string number) {
     this->color = color;
-    this->numero= numero;
+    this->number= number;
 }
 
-Carta::Carta() {
+Card::Card() {
 
 }
 
 
-char Carta::getColor() {
+char Card::getColor() {
     return color;
 }
 
-string Carta::getNumero() {
-    return numero;
+string Card::getNumber() {
+    return number;
 }
 
-string Carta::toString() {
+string Card::toString() {
     string color;
     switch(this->color){
         case 'b':{
@@ -55,10 +55,10 @@ string Carta::toString() {
             break;
         }
     }
-    return "Color "+ color+" Numero "+numero+"\n";
+    return ""+ color + " " + number +"\n";
 }
 
 
-Carta::~Carta() {
+Card::~Card() {
 }
 

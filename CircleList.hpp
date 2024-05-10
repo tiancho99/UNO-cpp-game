@@ -13,36 +13,34 @@
 
 #ifndef CIRCLELIST_HPP
 #define CIRCLELIST_HPP
-#include<string>
-#include"ListNode.hpp"
+#include <string>
+#include <vector>
+#include "ListNode.hpp"
 
-using namespace std;
-template<class T>
+template <typename T>
 class CircleList {
 public:
     CircleList();
     bool isEmpty();
-    ListNode<T>* findNode(string);
-    T* findBankAccount(string);
+    ListNode<T>* findNode(std::string);
     void addFirst(T info);
     void addLast(T info);
     void addSort(T info);
     void addAfterTo(ListNode<T>* direction, T info);
     void addBeforeTo(ListNode<T>* direction, T info);
-    void sentido(int);
-    void siguiente(bool);
+    void direction(int);
+    void next(bool);
     T getFirst();
     T getLast();
-    T getActual();
-    T* getJugador();
+    T getCurrent();
+    T* getPlayer();
     T deleteNode(ListNode<T>* direction);
     T* printNode();
-    vector<T> printList();
+    std::vector<T> printList();
     virtual ~CircleList();
 private:
     ListNode<T>* head;
-    ListNode<T>* actual;
+    ListNode<T>* current;
 };
 
 #endif /* CIRCLELIST_HPP */
-

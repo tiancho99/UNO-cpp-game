@@ -1,5 +1,17 @@
 # UNO-cpp-game
-Card game UNO coded in c++ language
+
+This repository contains a console-based UNO card game coded in C++.
 
 # Execution
-Clone the repository, change execution permitions to executable named file and then execute it, if you want to try the game. The source code is in the repository.
+
+To play the game you have to compile it running the following command:
+
+```bash
+$ g++ -o game main.cpp Deck.cpp CircleList.cpp Card.cpp Player.cpp
+```
+
+And then executing the compiled file:
+
+```bash
+$ ./game
+```

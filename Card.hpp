@@ -5,27 +5,29 @@
  */
 
 /* 
- * File:   Carta.hpp
+ * File:   Card.hpp
  * Author: tianc
  *
  * Created on 30 de septiembre de 2018, 03:58 PM
  */
 
-#ifndef CARTA_HPP
-#define CARTA_HPP
+#ifndef CARD_HPP
+#define CARD_HPP
 #include<iostream>
+
 using namespace std;
-class Carta {
+
+class Card {
 public:
-    Carta();
-    Carta(char color, string numero);
+    Card();
+    Card(char color, string number);
     char getColor();
-    string getNumero();
+    string getNumber();
     string toString();
-    virtual ~Carta();
+    virtual ~Card();
 private:
     char color; 
-    string numero;
+    string number;
 };
 
 #endif /* CARTA_HPP */

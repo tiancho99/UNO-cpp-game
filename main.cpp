@@ -12,8 +12,9 @@
  */
 
 #include <cstdlib>
-#include "Carta.hpp"
-#include "Baraja.hpp"
+#include "Deck.hpp"
+#include "CircleList.hpp"
+#include <iostream>
 
 using namespace std;
 
@@ -21,12 +22,14 @@ using namespace std;
  * 
  */
 int main() {
-    Baraja* baraja = new Baraja();
-    cout<<"Digite el numero de jugadores"<<endl;
-    int numeroJugadores;
-    cin>>numeroJugadores;
-    baraja->start(numeroJugadores);
-    
+    Deck *deck = new Deck();
+
+    cout<<"How many players are?"<<endl;
+    int numPlayers;
+    cin>>numPlayers;
+
+    deck->dealCards(numPlayers);
+    deck->play();
     return 0;
     
 }
